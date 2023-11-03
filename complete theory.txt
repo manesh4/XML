@@ -1,0 +1,341 @@
+What is XML?
+XML stands for eXtensible Markup Language. It is a language (not> a programming language) that uses the 
+markup and can extend. It is derived from Standard Generalized Markup Language(SGML). XML also uses
+ DTDs (Document Type Definitions) to define the XML document structure.
+
+XML is not for handling computational operations and algorithms. Thus, XML is not a programming language. 
+The main goal is to transport data not to display information. XML bridges the gap between human readability 
+and machine readability. Unlike HTML tags, XML tags are self-descriptive.
+
+XML is an open format. The filename extension of XML is .xml
+
+History of XML
+XML started way back in 1996 and was first published in 1998. World Wide Web Consortium (W3C) 
+is the developer of XML, and it became a W3C recommendation in 1998.
+
+There are two versions of XML.
+
+XML 1.0
+XML 1.1
+XML 1.1 is the latest version. Yet, XML 1.0 is the most used version.
+
+Editors of XML are:
+
+Tim Bray,
+Jean Paoli,
+C. M. Sperberg,
+Eve Maler,
+François Yergeau.
+
+
+XML Features
+Here are some important features of XML:
+
+It is extensible and human-readable.
+It is platform and language independent.
+It preserves white space.
+Overall simplicity.
+Self-descriptive nature.
+It separates data from HTML.
+XML tags are not predefined. You need to define your customized tags.
+XML was designed to carry data, not to display that data.
+Mark-up code of XML is easy to understand for a human.
+Well-structured format is easy to read and write from programs.
+XML is an extensible markup language like HTML.
+XML Encoding
+
+Encoding is the conversion of Unicode characters to their binary representation. UTF is use for XML encoding.
+ UTF stands for UCS (UCS stands for Universal Character Set) Transformation Format.
+
+Mainly, there are two types of UTF encoding.
+
+UTF-8 : UTF-8 uses 8-bits to represent the characters.
+Example:
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+UTF-16
+It uses 16-bits to represent the characters.
+
+Example:
+
+<?xml version="1.0" encoding="UTF-16"?>
+You can use encoding inside the XML declaration. UTF-8 is the default encoding in XML.
+
+XML Syntax
+The below code segment shows the basic XML syntax.
+
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<root>
+    <child>
+        <subchild>.....</subchild>
+    </child>
+</root>
+
+Syntax for XML Declaration
+The below code segment shows the syntax for XML declaration.
+
+<?xml version="version_number," encoding="character_encoding" standalone="yes_or_no" ?> 
+XML Declaration Rules
+Following are XML declaration rules.
+
+If the XML declaration is present, it must be the first thing that appears.
+The XML declaration is case sensitive, and it must start with the lowercased <?xml.
+It has no closing tag.
+
+XML Tag and Element Rules
+Following list shows XML tag and element rules.
+
+Tags are case sensitive.
+Example:
+
+Correct:
+
+<age>20</age>
+Wrong:
+
+<age>20</Age>
+
+
+XML Attributes
+Attribute for an element is placed after the tag name in the start tag. You can add more than one 
+attribute for a single element with different attribute names.
+
+Let’s consider the below XML document.
+
+<company name="ABC Holdings" location="London">  
+    <chairman>Mr. John</chairman>  
+    <gm>Mr. Wood</gm>  
+</company>  
+
+
+XML Entities
+What are XML Entities?
+In simple terms, entities are a way of representing special characters. Entities are also known as entity references.
+
+Why You Need XML Entities?
+Some characters (such as “, & <, and so on) are reserved in XML. They are referred to as special 
+characters and cannot be directly used for other purposes.
+
+For example, the < and > symbols a used for tags. You cannot directly type from the keyboard for 
+less than and greater than signs. Instead, you need to use entities.
+
+Example:
+
+<friend>
+        <name>My friends are Alice &amp; Jane.</name>
+</friend>
+
+Similarities between HTML and XML
+Following list shows the similarities between HTML and XML.
+
+Both are open formats.
+Both are markup languages.
+Both use tags and attributes to describe the content.
+
+
+Similarities between JSON and XML
+The below list shows the similarities between JSON and XML.
+
+Both are open formats.
+Both are self-describing.
+Both have a hierarchical structure.
+Both can parse and use by several programming languages.
+
+
+With JSON
+
+{"books":[
+   {"name":"Anna Karenina", "author":"Leo Tolstoy"},
+   {"name":"One Hundred Years of Solitude", "author":"Gabriel Garcia Marquez"},
+   {"name":"The Great Gatsby", "author":"Scott Fitzgerald"},
+   {"name":"Invisible Man", "author":"Ralph Ellison"}
+]}
+With XML
+
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<books>
+    <book>
+        <name>Anna Karenina</name> 
+        <author>Leo Tolstoy</author> 
+    </book>
+    <book>
+        <name>One Hundred Years of Solitude</name> 
+        <author>Gabriel Garcia Marquez</author> 
+    </book>
+    <book>
+        <name>The Great Gatsby</name> 
+        <author>Scott Fitzgerald</author> 
+    </book>
+    <book>
+        <name>Invisible Man</name> 
+        <author>Ralph Ellison</author>
+    </book>
+</books>
+
+
+XML DTD
+What is DTD?
+DTD stands for Document Type Definition. It defines the structure of an XML document using some legal elements.
+ XML DTD is optional.
+
+DTD Rules
+Following list shows DTD rules.
+
+If DTD is present, it must appear at the start of the document (only the XML declaration can appear above the DTD).
+The element declaration must start with an ! mark.
+The DTD name and element type of the root element must be the same.
+
+
+
+Examples of DTD
+Example of an internal DTD:
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE student [
+<!ELEMENT student (firstname,lastname,school)>  
+<!ELEMENT firstname (#PCDATA)>  
+<!ELEMENT lastname (#PCDATA)>  
+<!ELEMENT school (#PCDATA)> 
+]>
+<student>  
+    <firstname>Mark</firstname>  
+    <lastname>Wood</lastname>  
+    <school>Hills College</school>  
+</student>
+
+In the above example,
+
+!DOCTYPE student indicates the beginning of the DTD declaration. And the student is the root element of the XML document.
+!ELEMENT student indicates the student element must contain firstname, lastname and school elements.
+!ELEMENT firstname indicates the firstname element is of type #PCDATA (Parsed Character Data).
+!ELEMENT lastname indicates the lastname element is of type #PCDATA.
+!ELEMENT school indicates the school element is of type #PCDATA.
+
+Example of an external DTD:
+
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE student SYSTEM "student.dtd">  
+<student>  
+    <firstname>Mark</firstname>  
+    <lastname>Wood</lastname>  
+    <school>Hills College</school>  
+</student>  
+
+
+XML DOM
+What is DOM?
+DOM stands for Document Object Model. It defines a standard manner of accessing and manipulating XML documents.
+ DOM has a (hierarchical) tree structure.
+
+Example of DOM
+Let’s consider the below XML document.
+
+<?xml version="1.0" encoding="UTF-8" ?>  
+<school>
+    <student>  
+        <name>
+            <first_name>Alex</first_name>  
+            <last_name>Clarke</last_name>  
+        </name>
+        <age>14</age>  
+        <address>No. 35, Flower Road, Leeds</address>  
+    </student> 
+</school>
+
+
+XML Validation
+What are Well-formed XML Documents?
+Well-formed XML documents are XML documents with correct syntax.
+
+What are Valid XML Documents?
+Valid XML documents are well-formed and also conform to the DTD rules.
+
+XML Namespaces
+Why Namespaces?
+Namespaces help to avoid element name conflicts.
+
+Namespace Declaration
+Following shows the syntax for the namespace declaration.
+
+<element xmlns:name="URL">
+In the above declaration,
+
+The xmlns keyword indicates the beginning of the namespace.
+The name is the prefix of the namespace.
+The URL is the namespace identifier.
+
+
+
+Examples of Namespaces
+Following code segment shows an example of namespaces.
+
+<?xml version="1.0" encoding="UTF-8" ?>  
+<abt:about xmlns:abt="https://www.something.com/about-us.html">  
+    <abt:founder>Krishna</abt:founder>  
+    <abt:vision>Fun and Free Education for ALL</abt:vision>  
+</abt:about>  
+
+XML Editors
+There are several XML editors available. Any text editor (such as notepad and so on) can use as an XML editor.
+
+1) XML Notepad
+Link: http://microsoft.github.io/XmlNotepad/
+2) Stylus Studio
+Link: http://www.stylusstudio.com/
+3) Altova XMLSpy
+Link:https://www.altova.com/xmlspy-xml-editor
+
+XML Parsers
+An XML parser is a software library that provides an interface to work with XML documents. 
+It checks whether the format of the XML document is correct. Some parsers can also validate the XML documents. 
+Modern-day browsers come with XML parsers.
+
+SAX
+SAX stands for Simple API for XML. It is an application program interface (API) for parsing XML documents. 
+They behave similarly to the event handlers in Java.
+
+XML Data Binding
+XML data binding is the representation of data in an XML document as a business object in the memory of a computer.
+
+There are three approaches for XML data binding.
+
+XML schema-based data binding: Corresponding XML classes are created based on the schema.
+Class-based data binding: A corresponding XML schema is created based on classes.
+Mapping-based data binding: It describes how an existing XML schema maps to a set of classes (and vice-versa).
+
+XML Schemas
+XML schema (also known as XML schema definition or XSD) use to describe the XML document structure. 
+It is an alternative to DTD.
+
+Why Schema is Important?
+DTD is not powerful as schema as it is not extensible and flexible enough. So, it may not be suitable for some situations. In such a situation schema is important. 
+The main purpose of using XML schema is to define the elements and attributes of an XML document.
+
+Following code segment shows an example of XML schema.
+
+xs:schema xmlns:xs = "http://www.w3.org/2001/XMLSchema">
+    <xs:element name = "employee">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name = "firstname" type = "xs:string" />
+                <xs:element name = "lastname" type = "xs:string" />
+                <xs:element name = "phone" type = "xs:int" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
+
+Advantages of XML
+Here, pros/benefits of XML:
+
+It made it easy to transport and share data.
+XML improves the exchange of data between various platforms.
+It is a markup language, which is a set of characters or/and symbols placed in a text document.
+It enhances data availability.
+Provide relatively easy to learn and code.
+
+Disadvantages:
+XML requires a processing application.
+The XML syntax is similar to another alternative ‘text-based’ data transmission formats, which is sometimes confusing.
+The XML syntax is redundant.
